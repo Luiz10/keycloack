@@ -10,8 +10,7 @@ services:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
       - KC_DB=postgres
-      - KC_DB_URL_DATABASE=keycloak
-      - KC_DB_USERNAME=postgres
+      - KC_DB_URL_DATABASE=postgres
       - KC_DB_PASSWORD=fortaleza10*
       - KC_DB_URL=jdbc:postgresql://keycloak.cwnc4guvkvsw.us-east-1.rds.amazonaws.com:5432/keycloak
       - KC_DB_URL_PORT=5432

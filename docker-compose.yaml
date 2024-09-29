@@ -3,20 +3,6 @@ networks:
   redes:
     driver: bridge
 services:
-  db:
-    container_name: db
-    image: postgres:11.2-alpine
-    restart: always
-    environment:
-      - POSTGRES_PASSWORD=senha
-      - POSTGRES_USER=usuario
-      - POSTGRES_DB=keycloak
-    volumes:
-      - ./postgres:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
-    networks:
-      - redes  
   keycloak:
     container_name: keycloak
     image:  quay.io/keycloak/keycloak:21.1
@@ -25,9 +11,9 @@ services:
       - KEYCLOAK_ADMIN_PASSWORD=admin
       - KC_DB=postgres
       - KC_DB_URL_DATABASE=keycloak
-      - KC_DB_USERNAME=usuario
-      - KC_DB_PASSWORD=senha
-      - KC_DB_URL=jdbc:postgresql://db:5432/keycloak
+      - KC_DB_USERNAME=postgres
+      - KC_DB_PASSWORD=fortaleza10*
+      - KC_DB_URL=jdbc:postgresql://keycloak.cwnc4guvkvsw.us-east-1.rds.amazonaws.com:5432/keycloak
       - KC_DB_URL_PORT=5432
     ports:
       - 8080:8080

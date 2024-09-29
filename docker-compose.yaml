@@ -11,7 +11,7 @@ services:
       - POSTGRES_PASSWORD=senha
       - POSTGRES_USER=usuario
       - POSTGRES_DB=keycloak
-   s ports:
+    ports:
       - 5432:5432
     networks:
       - redes  

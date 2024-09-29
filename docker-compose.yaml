@@ -11,9 +11,7 @@ services:
       - POSTGRES_PASSWORD=senha
       - POSTGRES_USER=usuario
       - POSTGRES_DB=keycloak
-    volumes:
-      - ./postgres:/var/lib/postgresql/data
-    ports:
+   s ports:
       - 5432:5432
     networks:
       - redes  

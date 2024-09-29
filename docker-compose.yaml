@@ -29,6 +29,7 @@ services:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=password
       - KC_DB=postgres
+      - KC_DB_URL_DATABASE=keycloak
       - KC_DB_USERNAME=usuario
       - KC_DB_PASSWORD=senha
       - KC_DB_URL_HOST=db

@@ -18,20 +18,19 @@ services:
     networks:
       - redes  
   keycloak:
+    image: jboss/keycloak:8.0.1
     container_name: keycloak
-    image:  quay.io/keycloak/keycloak:21.1
+    restart: always
     environment:
-      - KEYCLOAK_ADMIN=admin
-      - KEYCLOAK_ADMIN_PASSWORD=password
-      - KC_DB=postgres
-      - KC_DB_URL_DATABASE=keycloak
-      - KC_DB_USERNAME=usuario
-      - KC_DB_PASSWORD=senha
-      - KC_DB_URL=jdbc:postgresql://db:5432/keycloak
-      - KC_DB_URL_PORT=5432
-    ports:
-      - 8080:8080
-    command: start-dev
+      - DB_VENDOR=POSTGRES
+      - DB_ADDR=postgres
+      - DB_PORT=5432
+      - DB_SCHEMA=public
+      - DB_DATABASE=keycloak
+      - DB_USER=usuario
+      - DB_PASSWORD=senha
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
     depends_on:
       - db  
     networks:

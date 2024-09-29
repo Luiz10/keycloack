@@ -4,7 +4,7 @@ networks:
     driver: bridge
 services:
   db:
-    container_name: postgres
+    container_name: db
     image: postgres:11.2-alpine
     restart: always
     environment:
@@ -24,7 +24,7 @@ services:
       - redes  
   keycloak:
     container_name: keycloak
-    image: quay.io/keycloak/keycloak:19.0.1
+    image:  quay.io/keycloak/keycloak:21.1
     environment:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=password
@@ -32,7 +32,7 @@ services:
       - KC_DB_URL_DATABASE=keycloak
       - KC_DB_USERNAME=usuario
       - KC_DB_PASSWORD=senha
-      - KC_DB_URL_HOST=postgres
+      - KC_DB_URL=jdbc:postgresql://db:5432/keycloak
       - KC_DB_URL_PORT=5432
     ports:
       - 8080:8080
